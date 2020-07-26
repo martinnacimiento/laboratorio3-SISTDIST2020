@@ -1,6 +1,6 @@
 class Store {
   constructor() {
-    this.store = new Map();
+    this.store = new Map()
   }
 
   /**
@@ -13,11 +13,11 @@ class Store {
       !/^[a-zA-Z0-9_]{1,50}$/g.test(key) ||
       Buffer.byteLength(value) > 1500000
     )
-      throw new Error("Error en formato");
-    let res = 0;
-    if (this.store.has(key)) res = 1;
-    this.store.set(key, value);
-    return res;
+      throw new Error("Error en formato")
+    let res = 0
+    if (this.store.has(key)) res = 1
+    this.store.set(key, value)
+    return res
   }
 
   /**
@@ -25,9 +25,9 @@ class Store {
    * @param {String} key
    */
   get(key) {
-    const value = this.store.get(key);
-    if (value == null) throw new Error("No existe la clave ingresada");
-    return value;
+    const value = this.store.get(key)
+    if (value == null) throw new Error("No existe la clave ingresada")
+    return value
   }
 
   /**
@@ -35,10 +35,10 @@ class Store {
    * @param {String} key
    */
   delete(key) {
-    if (!this.store.has(key)) throw new Error("No existe la clave ingresada");
-    this.store.delete(key);
-    return key;
+    if (!this.store.has(key)) throw new Error("No existe la clave ingresada")
+    this.store.delete(key)
+    return key
   }
 }
 
-module.exports = Store;
+module.exports = Store
