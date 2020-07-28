@@ -4,6 +4,29 @@ class Store {
   }
 
   /**
+   * Recupera todos los datos del almacén
+   */
+  getStore() {
+    let res = []
+    this.store.forEach((value, key) => {
+      res.push({ key, value })
+    })
+    return res
+  }
+
+  /**
+   * Actualiza el almacén entero
+   * @param {Map} newStore
+   */
+  setStore(newStore) {
+    let newMap = new Map()
+    newStore.forEach(d => {
+      newMap.set(d.key, d.value)
+    })
+    this.store = newMap
+  }
+
+  /**
    * Guarda una clave y un valor
    * @param {String} key
    * @param {String} value
